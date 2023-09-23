@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://qgq3at7spflt"]
+
+[ext_resource type="Texture2D" uid="uid://bljplawdttsxe" path="res://assets/room.png" id="1_xr3hs"]
+[ext_resource type="Script" path="res://scenes/Room.cs" id="2_f8ngf"]
+[ext_resource type="PackedScene" uid="uid://dxbv8nfj0o056" path="res://scenes/interactables/door.tscn" id="2_g68t8"]
+[ext_resource type="PackedScene" uid="uid://c5ppk1ovxe1vb" path="res://scenes/interactables/button.tscn" id="3_7oewu"]
+[ext_resource type="Texture2D" uid="uid://dmy3vwamrvuh1" path="res://assets/turnGradient.png" id="4_417ew"]
+[ext_resource type="Script" path="res://scenes/interactables/BaseInteractive.cs" id="5_d37fl"]
+
+[node name="RoomDoor" type="TextureRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_xr3hs")
+expand_mode = 5
+stretch_mode = 5
+script = ExtResource("2_f8ngf")
+
+[node name="door" parent="." instance=ExtResource("2_g68t8")]
+layout_mode = 1
+offset_left = 364.0
+offset_top = 85.0
+offset_right = -550.0
+offset_bottom = -64.0
+
+[node name="button" parent="." instance=ExtResource("3_7oewu")]
+layout_mode = 1
+offset_left = 713.0
+offset_top = 262.0
+offset_right = -206.0
+offset_bottom = -232.0
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -90.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_hover = ExtResource("4_417ew")
+stretch_mode = 0
+script = ExtResource("5_d37fl")
+
+[node name="Message" type="Label" parent="."]
+offset_right = 616.0
+offset_bottom = 23.0
+
+[connection signal="pressed" from="TextureButton" to="door" method="OnTurnFromDoor"]

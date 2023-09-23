@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://dxnx2jartwe0l"]
+
+[ext_resource type="Texture2D" uid="uid://bljplawdttsxe" path="res://assets/room.png" id="1_13ss0"]
+[ext_resource type="Script" path="res://scenes/Room.cs" id="2_j377t"]
+[ext_resource type="Script" path="res://scenes/interactables/BaseInteractive.cs" id="3_g6xcr"]
+[ext_resource type="PackedScene" uid="uid://757k2c1vu2qi" path="res://scenes/interactables/safe.tscn" id="3_svtkc"]
+[ext_resource type="Texture2D" uid="uid://dmy3vwamrvuh1" path="res://assets/turnGradient.png" id="4_hlg2c"]
+[ext_resource type="PackedScene" uid="uid://clvtkrxldsch4" path="res://scenes/interactables/note.tscn" id="5_e51ux"]
+
+[node name="RoomSafe" type="TextureRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_13ss0")
+expand_mode = 5
+stretch_mode = 5
+script = ExtResource("2_j377t")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -90.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_hover = ExtResource("4_hlg2c")
+stretch_mode = 0
+script = ExtResource("3_g6xcr")
+
+[node name="safe" parent="." instance=ExtResource("3_svtkc")]
+layout_mode = 0
+offset_left = 845.0
+offset_top = 401.0
+offset_right = 1148.0
+offset_bottom = 667.0
+
+[node name="Message" type="Label" parent="."]
+layout_mode = 0
+offset_right = 616.0
+offset_bottom = 23.0
+
+[node name="note" parent="." instance=ExtResource("5_e51ux")]
+layout_mode = 0
+offset_left = 946.0
+offset_top = 434.0
+offset_right = 996.0
+offset_bottom = 487.0
+
+[connection signal="pressed" from="TextureButton" to="TextureButton" method="OnTurnFromSafe"]

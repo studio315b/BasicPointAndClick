@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://clvtkrxldsch4"]
+
+[ext_resource type="Texture2D" uid="uid://btv5ry70wiiup" path="res://assets/note.png" id="1_fd0q7"]
+[ext_resource type="Script" path="res://scenes/interactables/BaseInteractive.cs" id="2_5m8rn"]
+[ext_resource type="Script" path="res://scripts/FlagCheck.cs" id="3_a3t2i"]
+
+[sub_resource type="Resource" id="Resource_gq0v4"]
+script = ExtResource("3_a3t2i")
+Flag = 3
+IsTrue = false
+
+[node name="note" type="TextureButton"]
+texture_normal = ExtResource("1_fd0q7")
+script = ExtResource("2_5m8rn")
+IsShown = SubResource("Resource_gq0v4")
+
+[connection signal="pressed" from="." to="." method="OnNoteInteract"]

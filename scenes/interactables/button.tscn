@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5ppk1ovxe1vb"]
+
+[ext_resource type="Texture2D" uid="uid://ssfj26ncecc2" path="res://assets/button.png" id="1_ni6ip"]
+[ext_resource type="Script" path="res://scenes/interactables/BaseInteractive.cs" id="2_fjq21"]
+
+[node name="button" type="TextureButton"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("1_ni6ip")
+stretch_mode = 5
+script = ExtResource("2_fjq21")
+
+[connection signal="pressed" from="." to="." method="OnButtonInteract"]

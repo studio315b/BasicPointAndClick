@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://757k2c1vu2qi"]
+
+[ext_resource type="Texture2D" uid="uid://bpwb1cuue6d1j" path="res://assets/safe.png" id="1_o068k"]
+[ext_resource type="Script" path="res://scenes/interactables/BaseInteractive.cs" id="2_pbo3q"]
+
+[node name="safe" type="TextureButton"]
+texture_normal = ExtResource("1_o068k")
+stretch_mode = 5
+script = ExtResource("2_pbo3q")
+
+[connection signal="pressed" from="." to="." method="OnSafeInteract"]

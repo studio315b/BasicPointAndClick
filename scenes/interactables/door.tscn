@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxbv8nfj0o056"]
+
+[ext_resource type="Texture2D" uid="uid://bnajwa1yqj1nc" path="res://assets/door.png" id="1_dtudp"]
+[ext_resource type="Script" path="res://scenes/interactables/BaseInteractive.cs" id="2_irb2s"]
+
+[node name="door" type="TextureButton"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("1_dtudp")
+stretch_mode = 5
+script = ExtResource("2_irb2s")
+
+[connection signal="pressed" from="." to="." method="OnDoorInteract"]
